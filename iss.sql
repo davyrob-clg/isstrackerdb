@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS space_tracking;
-USE space_tracking;
+CREATE DATABASE IF NOT EXISTS iss_tracking;
+USE iss_tracking;
 
 CREATE TABLE IF NOT EXISTS iss_positions (
     id INT AUTO_INCREMENT PRIMARY KEY,

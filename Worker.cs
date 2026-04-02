@@ -29,6 +29,7 @@ public class Worker : BackgroundService
         var pollInterval = _configuration.GetValue<int>("IssTracking:PollIntervalSeconds");
 
         _logger.LogInformation("ISS Tracker Service Started.");
+        _logger.LogInformation($"URL {apiUrl}");
 
         while (!stoppingToken.IsCancellationRequested)
         {
@@ -53,6 +54,8 @@ public class Worker : BackgroundService
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error fetching or saving ISS data");
+                _logger.LogError($"Big problems abound: {ex.Message}");
+	            Environment.Exit(1);
             }
 
             // 4. Wait before next poll
